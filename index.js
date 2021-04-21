@@ -12,7 +12,7 @@ exports.handler = async (event) => {
 }
 
 async function getProducts() {
-  const rows = await DynamoDB.scan({ TableName: 'ton_sales_products' }).promise()
+  const rows = await DynamoDB.scan({ TableName: process.env.TABLE_NAME }).promise()
 
   return mapDynamoRows(rows.Items)
 }
