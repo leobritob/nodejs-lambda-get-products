@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "zip -r deploy.zip ./",
+    "deploy": "aws lambda update-function-code --function-name tonSalesGetProducts --zip-file fileb://deploy.zip",
+    "postdeploy": "rm -rf deploy.zip"
   },
   "repository": {
     "type": "git",
